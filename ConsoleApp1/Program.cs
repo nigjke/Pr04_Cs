@@ -80,8 +80,64 @@ namespace ConsoleApp1
                 goto m2;
             }
             Console.ReadKey();
-        }
 
+            // Вводится строка, состоящая из слов разделенных точками. Длина строки может быть разной. Сформировать и вывести подстроку, расположенную между второй и пятой точками исходной строки. Если в строке менее пяти точек, то вывести всю исходную строку.
+            Console.WriteLine("Введите строку, состоящую из слов, разделенных точками:");
+            Console.WriteLine("Введите строку, состоящую из слов, разделенных точками:");
+            string inputString = Console.ReadLine();
+
+            string[] segments = inputString.Split('.');
+
+            if (segments.Length >= 5)
+            {
+                string result = string.Join(".", segments, 2, 3);
+                Console.WriteLine("Результат: " + result);
+            }
+            else
+            {
+                Console.WriteLine("Результат: " + inputString);
+            }
+            Console.ReadKey();
+
+            // Вводится строка, изображающая двоичную запись целого положительного числа. Вывести строку, изображающую десятичную запись этого же числа.
+            Console.WriteLine("Введите строку, изображающую двоичную запись целого положительного числа:");
+            string binaryString = Console.ReadLine();
+
+            int decimalNumber = Convert.ToInt32(binaryString, 2);
+
+            Console.WriteLine("Десятичная запись числа: " + decimalNumber);
+
+            Console.ReadKey();
+
+            // Вводится строка, состоящая из слов, разделенных подчеркиваниями (одним или несколькими). Длина строки может быть разной. Определить и вывести на экран самое длинное слово, а так же размер этого слова.
+            Console.WriteLine("Введите строку, состоящую из слов, разделенных подчеркиваниями:");
+            string inputtString = Console.ReadLine();
+
+            string[] words = inputtString.Split('_');
+
+            string longestWord = "";
+            int maxLength = 0;
+
+            foreach (string word in words)
+            {
+                if (word.Length > maxLength)
+                {
+                    maxLength = word.Length;
+                    longestWord = word;
+                }
+            }
+
+            if (!string.IsNullOrEmpty(longestWord))
+            {
+                Console.WriteLine("Самое длинное слово: " + longestWord);
+                Console.WriteLine("Длина самого длинного слова: " + maxLength);
+            }
+            else
+            {
+                Console.WriteLine("Строка не содержит слов, разделенных подчеркиваниями.");
+            }
+            Console.ReadKey();
         }
     }
+}
 
